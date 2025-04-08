@@ -10,10 +10,10 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/">Job Board</a>
-            <div class="navbar-nav">
+            <!-- <div class="navbar-nav">
                 <a class="nav-link" href="{{ route('jobs.create') }}">Post Job</a>
                 <a class="nav-link" href="{{ route('moderator.index') }}">Moderator</a>
-            </div>
+            </div> -->
         </div>
     </nav>
 
