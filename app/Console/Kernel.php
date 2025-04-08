@@ -14,7 +14,18 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->job(new FetchExternalJobs)->hourly();
+        $schedule->call(function () {
+            $service = new \App\Services\ExternalJobService();
+            $xml = $service->fetchJobs();
+            $jobs = $service->parseJobs($xml);
+            
+            // Store in cache for 1 hour
+            \Illuminate\Support\Facades\Cache::put(
+                'external-jobs', 
+                $jobs,
+                3600
+            );
+        })->hourly();
     }
 
     /**

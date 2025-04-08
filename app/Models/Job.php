@@ -10,7 +10,7 @@ class Job extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', 'email', 
+        'title', 'description', 'email', 'location', 'employment_type',
         'is_approved', 'is_spam', 'is_external', 'external_link'
     ];
     

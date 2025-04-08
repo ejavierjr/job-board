@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->string('location');
+            $table->string('employment_type');
             $table->string('email');
             $table->boolean('is_approved')->default(false);
             $table->boolean('is_spam')->default(false);
